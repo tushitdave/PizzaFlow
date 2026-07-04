@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PizzaFlow</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SliceMatic Counter</p>
+          <h1>PizzaFlow</h1>
+          <p class="subhead">Validated pizza ordering with automatic discount, GST, payment capture, and order logging.</p>
+        </div>
+        <div class="top-actions">
+          <a class="admin-link" href="./admin.html">Admin</a>
+          <div class="status-pill" id="apiStatus">Backend: checking</div>
+        </div>
+      </header>
+
+      <section class="layout">
+        <div class="panel">
+          <h2>Customer Details</h2>
+          <div class="grid two">
+            <label>
+              Name
+              <input id="customerName" placeholder="Rajan Sharma" />
+              <span class="error" id="nameError"></span>
+            </label>
+            <label>
+              Phone
+              <input id="customerPhone" placeholder="9876543210" inputmode="numeric" />
+              <span class="error" id="phoneError"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Smart Order Box</h2>
+          <div class="smart-row">
+            <textarea id="smartInput" placeholder="Two thick crust Farm House pizzas with extra cheese"></textarea>
+            <button id="parseButton" type="button">Parse</button>
+          </div>
+          <p class="note" id="aiMessage"></p>
+        </div>
+
+        <div class="panel">
+          <h2>Build Pizza</h2>
+          <div class="grid four">
+            <label>
+              Base
+              <select id="baseSelect"></select>
+              <span class="error" id="baseError"></span>
+            </label>
+            <label>
+              Pizza
+              <select id="pizzaSelect"></select>
+              <span class="error" id="pizzaError"></span>
+            </label>
+            <label>
+              Topping
+              <select id="toppingSelect"></select>
+              <span class="error" id="toppingError"></span>
+            </label>
+            <label>
+              Quantity
+              <input id="quantityInput" value="1" inputmode="numeric" />
+              <span class="error" id="quantityError"></span>
+            </label>
+          </div>
+          <button id="addButton" type="button">Add Pizza</button>
+        </div>
+
+        <aside class="panel bill-panel">
+          <h2>Cart & Bill</h2>
+          <div id="cartList" class="cart-list"></div>
+          <div class="totals">
+            <div><span>Subtotal</span><strong id="subtotal">Rs. 0.00</strong></div>
+            <div><span>Discount</span><strong id="discount">Rs. 0.00</strong></div>
+            <div><span>GST 18%</span><strong id="gst">Rs. 0.00</strong></div>
+            <div class="final"><span>Final Total</span><strong id="finalTotal">Rs. 0.00</strong></div>
+          </div>
+
+          <h3>Payment Mode</h3>
+          <div class="payments">
+            <label><input type="radio" name="payment" value="Cash" /> Cash</label>
+            <label><input type="radio" name="payment" value="Card" /> Card</label>
+            <label><input type="radio" name="payment" value="UPI" /> UPI</label>
+          </div>
+          <span class="error" id="paymentError"></span>
+
+          <button id="submitButton" type="button">Confirm Order</button>
+          <p class="note" id="submitMessage"></p>
+        </aside>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

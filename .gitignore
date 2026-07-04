@@ -1,0 +1,41 @@
+.DS_Store
+.env
+__pycache__/
+*.pyc
+orders_log.txt
+
+# Generated/dependency folders
+node_modules/
+.next/
+.agents/
+.codex/
+
+# Assignment/reference artifacts not needed to run the app
+*.pdf
+*.svg
+*.html
+!frontend/*.html
+Architecture*.md
+docs/
+skill.md
+Part*.md
+
+# Keep only the root README
+*.md
+!README.md
+backend/README.md
+frontend/README.md
+
+# Old Next.js scaffold from earlier iteration
+app/
+src/
+public/
+package.json
+package-lock.json
+next.config.mjs
+next-env.d.ts
+postcss.config.mjs
+tailwind.config.ts
+tsconfig.json
+tsconfig.tsbuildinfo
+eslint.config.mjs

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PizzaFlow Admin</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SliceMatic Admin</p>
+          <h1>Orders Dashboard</h1>
+          <p class="subhead">Authenticated view of the latest Supabase orders.</p>
+        </div>
+        <div class="top-actions">
+          <a class="admin-link" href="./index.html">Ordering</a>
+          <div class="status-pill" id="adminStatus">Admin: signed out</div>
+        </div>
+      </header>
+
+      <section class="panel admin-panel">
+        <h2>Admin Login</h2>
+        <div class="smart-row">
+          <input id="adminPassword" type="password" placeholder="Admin password" />
+          <button id="loginButton" type="button">Sign In</button>
+        </div>
+        <p class="note" id="loginMessage"></p>
+      </section>
+
+      <section class="panel admin-panel">
+        <div class="admin-title">
+          <div>
+            <h2>Business Overview</h2>
+            <p class="subhead">Revenue, quantity, discounts, and popular menu choices from Supabase.</p>
+          </div>
+          <div class="date-filters">
+            <label>
+              Start
+              <input id="startDate" type="date" />
+            </label>
+            <label>
+              End
+              <input id="endDate" type="date" />
+            </label>
+            <button id="todayButton" type="button">Today</button>
+            <button id="yesterdayButton" type="button">Yesterday</button>
+          </div>
+        </div>
+
+        <div class="summary-grid">
+          <div class="metric-card"><span>Total Revenue</span><strong id="totalRevenue">Rs. 0.00</strong></div>
+          <div class="metric-card"><span>Total Orders</span><strong id="totalOrders">0</strong></div>
+          <div class="metric-card"><span>Pizzas Sold</span><strong id="pizzasSold">0</strong></div>
+          <div class="metric-card"><span>Discount Given</span><strong id="totalDiscount">Rs. 0.00</strong></div>
+          <div class="metric-card"><span>GST Collected</span><strong id="totalGst">Rs. 0.00</strong></div>
+        </div>
+
+        <div class="insight-grid">
+          <div class="insight-box">
+            <h3>Revenue by Payment</h3>
+            <div id="paymentBreakdown" class="bar-list"></div>
+          </div>
+          <div class="insight-box">
+            <h3>Most Ordered Pizzas</h3>
+            <div id="popularPizzas" class="bar-list"></div>
+          </div>
+          <div class="insight-box">
+            <h3>Popular Bases</h3>
+            <div id="popularBases" class="bar-list"></div>
+          </div>
+          <div class="insight-box">
+            <h3>Popular Toppings</h3>
+            <div id="popularToppings" class="bar-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel admin-panel">
+        <h2>Discounted Orders</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Customer</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Discount</th>
+                <th>Final Total</th>
+              </tr>
+            </thead>
+            <tbody id="discountBody">
+              <tr><td colspan="6">Sign in to load discounts.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel admin-panel">
+        <div class="admin-title">
+          <div>
+            <h2>Latest Orders</h2>
+            <p class="subhead">Newest records matching the selected date range.</p>
+          </div>
+          <button id="refreshButton" type="button">Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Timestamp</th>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Items</th>
+                <th>Discount</th>
+                <th>GST</th>
+                <th>Total</th>
+                <th>Payment</th>
+              </tr>
+            </thead>
+            <tbody id="ordersBody">
+              <tr><td colspan="8">Sign in to load orders.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>
