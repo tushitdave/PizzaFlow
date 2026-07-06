@@ -2,6 +2,13 @@
 
 Basic split frontend/backend implementation for the PizzaFlow assignment.
 
+## Live Demo
+
+- Frontend: `https://pizza-flow-three.vercel.app/`
+- Admin: `https://pizza-flow-three.vercel.app/admin.html`
+- Backend API: `https://pizzaflow-u4dm.onrender.com`
+- Backend Docs: `https://pizzaflow-u4dm.onrender.com/docs`
+
 ## Recommended Run
 
 Start the Python backend:
