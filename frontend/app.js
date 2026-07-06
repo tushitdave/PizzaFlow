@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://pizzaflow-u4dm.onrender.com";
 
 let menu = [];
 let cart = [];
