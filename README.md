@@ -7,7 +7,8 @@ Basic split frontend/backend implementation for the PizzaFlow assignment.
 Start the Python backend:
 
 ```bash
-uvicorn backend.main:app --reload --port 8000
+python3 -m pip install -r backend/requirements.txt
+python3 -m uvicorn backend.main:app --reload --port 8000
 ```
 
 Start the static frontend:
@@ -53,6 +54,43 @@ The backend already has Supabase support:
 - It saves cart lines to `order_line_items`.
 - It still writes `orders_log.txt` as a backup.
 
+## Backend Deployment on Render
+
+This repo includes `render.yaml` for the backend service.
+
+Render settings:
+
+- Service type: Web Service
+- Root directory: `backend`
+- Build command: `pip install -r requirements.txt`
+- Start command: `python -m uvicorn main:app --host 0.0.0.0 --port $PORT`
+
+Environment variables required in Render:
+
+- `SUPABASE_URL`
+- `SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `OPENROUTER_API_KEY`
+- `OPENROUTER_MODEL=openai/gpt-4o-mini`
+- `ADMIN_PASSWORD`
+
+After Render deploys the backend, update these files with the Render URL:
+
+- `frontend/app.js`
+- `frontend/admin.js`
+
+Change:
+
+```js
+const API_BASE = "http://localhost:8000";
+```
+
+to:
+
+```js
+const API_BASE = "https://your-render-service.onrender.com";
+```
+
 ## Assignment Coverage
 
 - Runtime menu loading from text files.
@@ -94,4 +132,4 @@ The backend already has Supabase support:
    - Review total revenue, total orders, pizzas sold, discount given, GST collected, payment breakdown, popular items, discounted orders, and recent orders.
    - Use Today, Yesterday, or custom date filters to compare revenue/order history.
 
-The earlier Next.js version remains in the repo, but the simpler split app lives in `backend/` and `frontend/`.
+The simpler split app lives in `backend/` and `frontend/`.
